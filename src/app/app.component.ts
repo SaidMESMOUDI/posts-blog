@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {Post} from './models/Post';
+import {Component, OnInit} from '@angular/core';
+import * as firebase from 'firebase';
+import {PostService} from './services/post.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,21 @@ import {Post} from './models/Post';
 })
 export class AppComponent {
 
-  posts: Post[] = [
-    new Post('Mon premier post', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid aut autem beatae distinctio eligendi expedita, facere fuga illum ipsum labore perspiciatis, quia quis quod rerum saepe veniam vero vitae.', 1),
-    new Post('Mon deuxième post', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid aut autem beatae distinctio eligendi expedita, facere fuga illum ipsum labore perspiciatis, quia quis quod rerum saepe veniam vero vitae.', -1) ,
-    new Post( 'Mon troisième post', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid aut autem beatae distinctio eligendi expedita, facere fuga illum ipsum labore perspiciatis, quia quis quod rerum saepe veniam vero vitae.', 0),
-    new Post( 'Mon quatrième post', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid aut autem beatae distinctio eligendi expedita, facere fuga illum ipsum labore perspiciatis, quia quis quod rerum saepe veniam vero vitae.', 1)
-    ];
+  constructor() {
+    // Web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: 'AIzaSyAt6yUyJgBpxsIjaJRjnyfrvBxAc39G7FI',
+      authDomain: 'posts-blog-4873b.firebaseapp.com',
+      databaseURL: 'https://posts-blog-4873b.firebaseio.com',
+      projectId: 'posts-blog-4873b',
+      storageBucket: 'posts-blog-4873b.appspot.com',
+      messagingSenderId: '489931903232',
+      appId: '1:489931903232:web:382b5418ca71d0b516a3e5',
+      measurementId: 'G-1GDV2QZ7SJ'
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  }
 
 }

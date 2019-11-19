@@ -8,12 +8,14 @@ import {Post} from '../models/Post';
 })
 export class PostListItemComponent implements OnInit {
 
-  @Input() postTitle: string;
+  @Input() postItem: Post;
+
+ /* @Input() postTitle: string;
   @Input() postContent: string;
   @Input() postLoveIts: number;
-  @Input() postCreatedAt: Date;
+  @Input() postCreatedAt: Date;*/
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
